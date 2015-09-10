@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 var lol = document.getElementsByTagName('h1');
 	setTimeout(function(){
 
-	lol.style.color = "green";
+	lol[0].style.color = "green";
 	},4000)
 });
