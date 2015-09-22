@@ -18,7 +18,7 @@ $(function() {
             // get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
-            var phone = $("input#phone").val();
+            // var phone = $("input#phone").val();
             var message = $("textarea#message").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
@@ -26,15 +26,17 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "//formspree.io/adamoctav@gmail.com",//"././mail/contact_me.php",
                 type: "POST",
                 data: {
                     name: name,
-                    phone: phone,
+                    // phone: phone,
                     email: email,
                     message: message
                 },
                 cache: false,
+                dataType: "json",
+                done:function(msg){console.log(msg);},
                 success: function() {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");

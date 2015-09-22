@@ -5,17 +5,17 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog</title>
+    <title>Dorin Adam - Frontend and other programming shenanigans</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="assets/css/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -28,6 +28,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="assets/js/posts.js"></script>
+    <script>
+    // var posts
+    // $.get( "posts.templ", function( data ) {
+  
+    //     posts = data.split('|');
+    //     console.log(posts );
+        
+    // });
+
+    </script>
 
 </head>
 
@@ -57,7 +69,7 @@
                         <a href="/about/">About</a><!-- Post page needs to be made -->
                     </li>
                     <li>
-                        <a href="/posts/">Posts</a><!-- Post page needs to be made -->
+                        <a href="/projects/">Projects</a><!-- Post page needs to be made -->
                     </li>
                     <li>
                         <a href="/contact/">Contact</a><!-- Post page needs to be made -->
@@ -71,14 +83,14 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('assets/img/home-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                        <h1>Adam Dorin</h1>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">Frontend and other programming shenanigans.<br> Cool problems I encounter, and their solutions.</span>
                     </div>
                 </div>
             </div>
@@ -88,8 +100,8 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 posts_container">
+                <!-- <div class="post-preview">
                     <a href="post.html">
                         <h2 class="post-title">
                             Man must explore, and this is exploration at its greatest
@@ -98,7 +110,7 @@
                             Problems look mighty small from 150 miles up
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                    <p class="post-meta">Posted on September 24, 2014</p>
                 </div>
                 <hr>
                 <div class="post-preview">
@@ -132,7 +144,7 @@
                         </h3>
                     </a>
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
+                </div> -->
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
@@ -141,19 +153,20 @@
                     </li>
                 </ul>
             </div>
+            <script>getPosts();</script>
         </div>
     </div>
 
     <hr>
 
     <!-- Footer -->
-    <footer>
+       <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
+                            <a href="https://twitter.com/IdeiVirale" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -161,7 +174,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/adamoctav" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -169,7 +182,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://github.com/adam-dorin" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -177,20 +190,21 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+                    <p class="copyright text-muted">Copyright &copy; Adam Dorin 2015</p>
                 </div>
             </div>
         </div>
+
     </footer>
 
     <!-- jQuery -->
-    <script src="/js/jquery.js"></script>
+    <!-- <script src="assets/js/jquery.js"></script> -->
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="/js/clean-blog.min.js"></script>
+    <script src="assets/js/clean-blog.min.js"></script>
 
 </body>
 
