@@ -18,9 +18,9 @@
     <link href="/assets/css/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -94,7 +94,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
+
                   <img src="/assets/img/wip.jpg" style="display:block;margin:0 auto;max-width:100%;" alt="">
    <!--                  <h2 class="section-heading">The Journey</h2>
                     <p>To boldly to where no man has gone before...</p>
@@ -109,7 +109,7 @@
         session_start();
     }
     require_once (__DIR__.'/Jobs/google-api-php-client/src/Google/autoload.php');
-       
+
     $client = new \Google_Client();
     $client->setClientId("334258235685-53mjg1lbmpvveh7u22if70thuols0p3g.apps.googleusercontent.com");
     $client->setClientSecret("KWH-AlOg-xDgoMNhO-P-mD9M");
@@ -122,7 +122,7 @@
     $client->addScope("https://www.googleapis.com/auth/gmail.compose");
     $client->addScope("https://www.googleapis.com/auth/gmail.modify");
     $client->addScope("https://www.googleapis.com/auth/gmail.readonly");
- 
+
     // $_REQUEST['code'] = "4/G_Uv_zNKBOuO7IPWqxz--7DQjh0LftLwA-nY3t5TrXk#"; //code and auth stuff to get tge gmail_access_token
     // $authUrl = $client->createAuthUrl();
     //     header("Location: $authUrl");
@@ -142,20 +142,20 @@
         // $authCode = trim(fgets(STDIN));
         // $accessToken = $client->authenticate($authCode);
         // dd($accessToken);//
-  
+
     $_SESSION['gmail_access_token'] = '{"access_token":"ya29.8gH8a-P6k6pno2M_0i6XIivkm_ooTM5XcWMeGtpWPzey_W81aPahTa7Tzl_3keUj6C4i","token_type":"Bearer","expires_in":3600,"refresh_token":"1\/uIWdygsbP-u_v_l-_9XzIDQGwQ6wYz_fqNwGV_CkkmI","created":-9}';//1442568393
- 
+
     //$isAccessCodeExpired = $client->isAccessTokenExpired();
-  
+
     // die();
     //if (isset($_SESSION['gmail_access_token']) && !empty($_SESSION['gmail_access_token']) && $isAccessCodeExpired != 1) {
     if (isset($_SESSION['gmail_access_token']) && !empty($_SESSION['gmail_access_token']) ) {
-      
+
         $client->setAccessToken($_SESSION['gmail_access_token']);
         $objGMail = new \Google_Service_Gmail($client);
-      
+
         $strSubject = $subject;//'Αυτό είναι Test mail using GMail API' . date('M d, Y h:i:s A');
-      
+
         $strRawMessage = "From: NoReply@caiet.info <no-reply@caiet.info>\r\n";
         $strRawMessage .= "To:<".$to.">\r\n";
         $strRawMessage .= 'Subject: =?utf-8?B?' . base64_encode($strSubject) . "?=\r\n";
@@ -163,20 +163,20 @@
         $strRawMessage .= "Content-Type: text/html;charset:utf-8\r\n";
         $strRawMessage .= 'Content-Transfer-Encoding: quoted-printable' . "\r\n\r\n";//
         $strRawMessage .= $template;//"this <b>is a</b> τηισ είς α τεστ tes2t!\r\n";
-      
+
         //Users.messages->send - Requires -> Prepare the message in message/rfc822
         try {
             // The message needs to be encoded in Base64URL
             $mime = strtr(base64_encode($strRawMessage), '+/', '-_');
             $msg = new \Google_Service_Gmail_Message();
             $msg->setRaw($mime);
-      
+
             //The special value **me** can be used to indicate the authenticated user.
             $objSentMsg = $objGMail->users_messages->send("me", $msg);
-      
+
             // print('Message sent object');
             // print($objSentMsg);
-      
+
         } catch (Exception $e) {
             print($e->getMessage());
             unset($_SESSION['gmail_access_token']);
@@ -201,7 +201,7 @@
                 </pre>
 
 
-                    
+
                     <blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
 
                     <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
